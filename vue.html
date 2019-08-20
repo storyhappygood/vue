@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 1+1 -->
+        <!-- {{ 1+1 }}
+        {{ 10 }}
+        {{ true }}
+        {{ [1,2,3] }}
+        {{ {a:1,b:10} }}
+        {{ undefined }}
+        {{ null }}
+
+        {{ 1+1 }}
+        {{ 1*8 }}
+        {{ 1-1 }}
+        {{ 10/2 }} -->
+        {{ a }}
+    </div>
+
+    <script>
+        // el:element 元素
+        // 插值表达式{{  }}
+        // '$'
+        // console.log(1 + 1);
+        // vm.$nextTick
+        // vm.$mount
+        const vm = new Vue({
+            // el: '#app',
+            data: {
+                a: 10,
+            }
+        })
+        vm.$mount('#app')
+        vm.a = 20;
+        console.log(vm.$el.innerHTML);
+        vm.$nextTick(()=>{console.log(vm.$el.innerHTML)})
+    </script>
+</body>
+
+</html>
