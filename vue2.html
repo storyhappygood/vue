@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <style>
+        .red{
+            background: red;
+        }
+        .green{
+            background: green;
+        }
+        .yellow{
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+    <!-- vue指令 -->
+    <!-- 1. v-bind 绑定属性 v-bind <==> : -->
+    <!-- class [] {} -->
+    <!-- style {} [] -->
+    <!-- 2. v-on:xxx v-on <==> @ -->
+
+    <div id='app'>
+        <!-- <img :src="imgUrl" :alt='name' :style="[{width:imgWidth},imgStyle]" style="width:100px;height:300px">
+        <h4 :class="[{red:h4Flag},h4Width]" class="red">{{ name }}</h4> -->
+        <button @click="handleClick">点击</button>
+        <h4 :class="h4ClassArr[h4Index]">{{ name }}</h4>
+
+        
+    </div>
+
+    <script>
+    const vm = new Vue({
+        el:'#app',
+        data:{
+            name:"Web前端开发之JavaScript(Js)精英课堂【渡一教育】",
+            imgUrl:"https://10.url.cn/qqcourse_logo_ng/ajNVdqHZLLBsSud06XlZnJACsTWd7OSA5phIFPRTNibFBeuT8jRjy00Jb5ticSEKYUnpUYdBCicH2U/356",
+            h4Class:'red',
+            h4Width:'width',
+            h4Flag:false,
+            imgWidth:'100px',
+            imgStyle:{
+                border:'10px solid red'
+            },
+            h4ClassArr:['red','green','yellow'],
+            h4Index:0,
+            h4Count:0,
+        },
+
+        methods: {
+            handleClick(){
+                // this == vm
+                this.h4Index = ++ this.h4Count % 3;
+            }
+        }
+
+    })
+    </script>
+
+</body>
+</html>
